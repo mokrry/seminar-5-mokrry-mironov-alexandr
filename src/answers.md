@@ -123,9 +123,7 @@ JOIN Station s_start ON s_start.Name = c1.FromStation
 JOIN Station s_end   ON s_end.Name   = c2.ToStation
 WHERE s_start.CityName = 'Москва'
   AND s_end.CityName   = 'Санкт-Петербург'
-  -- “в одну и ту же дату”
   AND DATE(c1.Departure) = DATE(c2.Arrival)
-  -- требование из задания про “DAY()”
   AND EXTRACT(DAY FROM c1.Departure) = EXTRACT(DAY FROM c2.Arrival)
 ORDER BY c1.Departure;
 ```
